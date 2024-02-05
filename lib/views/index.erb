@@ -17,10 +17,16 @@
   <main>
     <hr>
     <section>
+    
       <h2>Liste des Gossips</h2>
-      <% gossips.each do |gossip| %>
-        <p class="content"><%= gossip.content %></p>
-        <p class="author"><%= gossip.author %></p>
+      <% gossips.each_with_index do |gossip, id| %>
+        <article>
+          <h3>Potin n°<%= id %></h3>
+          <p><%= gossip.content %></p>
+          <p>Auteur : <%= gossip.author %><br>
+            <a href="/gossips/<%= id %>">Lire le potin</a>
+          </p>
+          ---
       <% end %>
     </section>
 

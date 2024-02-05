@@ -1,5 +1,6 @@
-# require 'pry'
+require 'pry'
 require 'csv'
+
 class Gossip
   attr_accessor :author, :content, :gossip_array
 
@@ -8,9 +9,9 @@ class Gossip
   def initialize(author, content)
     @author = author
     @content = content
-    @gossip_array = [@author,@content]
   end
 
+  # sauvgarder le gossip dans la bdd
   def save
     CSV.open(@@file_path, 'ab') do |csv|
       csv << [ @author , @content ]
@@ -26,6 +27,16 @@ class Gossip
     return all_gossip
   end
 
+  # trouver un gossip par son identifiant
+  def self.find(id)
+    return self.all[id]
+  end
+
+  # def find_index
+    
+  #   self.all.index{|g| g == self}
+  # end
+
   # def self.delete(id)
   #   File.open(@file_path+'_temp', 'w') do |out_file|
   #     File.foreach(@file_path).with_index do |line, line_index|
@@ -37,4 +48,6 @@ class Gossip
   # end
 end
 
+# _____ TESTS
 # gossip = Gossip.new("Annie","Mon potin,'lol'")
+# gossip = Gossip.find(0)
