@@ -62,6 +62,8 @@ class Gossip
     end
      # mise à jour du fichier
      self.update_csv(updated_array)
+
+     # TODO: delete les commentaires associés
   end
 end
 

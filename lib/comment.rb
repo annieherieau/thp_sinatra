@@ -43,15 +43,7 @@ class Comment
     end
   end
 
-  def self.delete(id)
-    csv_array = self.all
-    # suppression du gossip
-    updated_array = csv_array.filter.with_index do |comment, index|
-      index != id
-    end
-     # mise à jour du fichier
-     self.update_csv(updated_array)
-  end
+  # TODO : Delete tous les commantaires asscié à un gossip supprimé
 end
 
 
