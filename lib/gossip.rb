@@ -2,7 +2,7 @@ require 'pry'
 require 'csv'
 
 class Gossip
-  attr_accessor :author, :content, :gossip_array
+  attr_accessor :author, :content
 
   @@file_path = './db/gossip.csv'
 
@@ -18,23 +18,18 @@ class Gossip
     end
   end
 
-  # créer un array de hashes Gossips depuis la DB
+  # Lire la BDD et retourner un array de Hashes
   def self.all
-    all_gossip = []
-    CSV.foreach(@@file_path) do |line|
-        all_gossip  << Gossip.new(line[0],line[1])
+    all_gossips = []
+    CSV.foreach(@@file_path) do |csv|
+        all_gossips  << Gossip.new(csv[0],csv[1])
     end
-    return all_gossip
+    return all_gossips
   end
 
   # trouver un gossip par son identifiant
   def self.find(id)
     return self.all[id]
-  end
-
-  # lire le fichier csv et renvoie l'array
-  def self.read_csv
-    return CSV.read(@@file_path)
   end
 
   # mise à jour du fichier Csv
@@ -46,7 +41,8 @@ class Gossip
 
   # mise à jour du gossip
   def self.update(id, author, content)
-    csv_array = self.read_csv
+    # lire le csv
+    csv_array = self.all
     # update de l'Array
     csv_array.each_with_index do |gossip, index| 
       if id == index
@@ -59,7 +55,7 @@ class Gossip
   end
 
   def self.delete(id)
-    csv_array = self.read_csv
+    csv_array = self.all
     # suppression du gossip
     updated_array = csv_array.filter.with_index do |gossip, index|
       index != id

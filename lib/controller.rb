@@ -1,4 +1,5 @@
 require 'gossip'
+require 'comment'
 
 class ApplicationController < Sinatra::Base
   # index
@@ -19,7 +20,13 @@ class ApplicationController < Sinatra::Base
 
   # afficher un gossip par son index
   get '/gossips/:gossip_id' do
-    erb :show, locals: {gossip_id: params['gossip_id'].to_i, gossip: Gossip.find(params['gossip_id'].to_i)}
+    erb :show, locals: {gossip_id: params['gossip_id'].to_i, gossip: Gossip.find(params['gossip_id'].to_i), comments: Comment.find((params['gossip_id'].to_i))}
+  end
+
+  # ajouter un commentaire de formulaire dans la BDD
+  post '/gossips/:gossip_id' do
+    Comment.new(params['gossip_id'], params['comment_author'],params['comment_content']).save
+    redirect "/gossips/#{params['gossip_id']}"
   end
 
   # page éditer un gossip : formulaire
@@ -38,4 +45,6 @@ class ApplicationController < Sinatra::Base
     Gossip.delete(params['gossip_id'].to_i)
     redirect '/'
   end
+
+
 end
