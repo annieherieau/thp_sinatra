@@ -7,10 +7,38 @@
 </head>
 <body>
   <header>
-
-
-  <footer>
-  <div><a href="https://www.linkedin.com/in/annie-herieau/" target="_blank">Annie Hérieau</a> - Powered with Sinatra - <a href="https://github.com/annieherieau/thp_sinatra_the_gossip_project" target="blank">GitHub repo</a></div>
+    <nav><ul>
+      <li><a href="/">Voir tous les gossips</a></li>
+      <li><a href="/gossips/new/">Ajouter un Gossip</a></li>
+    </ul></nav>
+    <h1>The Gossip Project erb</h1>
+  </header>
+  <!-- MAIN -->
+  <main>
+    <hr>
+    <section>
+      <h2>Creer un nouveau gossip</h2>
+      <p>Tu as un nouveau potin croustillant ? Écris le vite dans le formulaire ci-dessous :</p>
+      <form action="/gossips/new" method = "POST">
+        <div>
+          <label for="gossip_author">Saisi ton nom : </label> 
+          <input type="text" name ="gossip_author" id="gossip_author">
+        </div>
+        <div>
+          <label for="gossip_content">Balance ton potin : </label><br>
+          <textarea name="gossip_content" id="gossip_content" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+          <input type="submit">
+        </div>
+      </form>
+    
+    </section>
+    <hr>
+  </main>
+  <!-- fin MAIN -->
+<footer>
+<div><a href="https://www.linkedin.com/in/annie-herieau/" target="_blank">Annie Hérieau</a> - Powered with Sinatra - <a href="https://github.com/annieherieau/thp_sinatra_the_gossip_project" target="blank">GitHub repo</a></div>
 </footer>
 
 </body>

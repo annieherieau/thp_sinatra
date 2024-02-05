@@ -10,8 +10,10 @@ The Hacking Project est une superbe formation, avec une communauté soudée. Qui
 
 - Page d'accueil affichant tous les potins
 - Ajouter un potin via formulaire
-- Chaque potin a une page dédiée
-- supprimer un potin
+- Pages pour chaque potin
+- Éditer un potin
+- Supprimer un potin
+- poster un commentaire sur un potin
 
 ## Objectifs
 
