@@ -1,4 +1,4 @@
-# Sinatra 1rst App
+# Sinatra : Hello world
 
 Application ultra basique pour découvrir le fonctionnement de Sinatra.
 
