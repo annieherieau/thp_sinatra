@@ -32,18 +32,44 @@ class Gossip
     return self.all[id]
   end
 
+  # lire le fichier csv et renvoie l'array
+  def self.read_csv
+    return CSV.read(@@file_path)
+  end
+
+  # mise à jour du fichier Csv
+  def self.update_csv(csv_array)
+    CSV.open(@@file_path, 'wb') do |csv|
+      csv_array.each{|gossip| csv << gossip}
+    end
+  end
+
   # mise à jour du gossip
   def self.update(id, author, content)
-    i = 0
-    CSV.open(@@file_path, 'wb') do |csv|
-      csv.replace([ author , content ]) if i == id
-      i +=1
+    csv_array = self.read_csv
+    # update de l'Array
+    csv_array.each_with_index do |gossip, index| 
+      if id == index
+        csv_array[index][0] = author
+        csv_array[index][1] = content
+      end
     end
-    binding.pry
+    # mise à jour du fichier
+    self.update_csv(csv_array)
+  end
+
+  def self.delete(id)
+    csv_array = self.read_csv
+    # suppression du gossip
+    updated_array = csv_array.filter.with_index do |gossip, index|
+      index != id
+    end
+     # mise à jour du fichier
+     self.update_csv(updated_array)
   end
 end
+
 
 # _____ TESTS
 # gossip = Gossip.new("Annie","Mon potin,'lol' test update")
 # gossip = Gossip.find(0)
-Gossip.update(9, "Anniex","Mon potin,'lol' test update : ok")

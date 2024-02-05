@@ -29,7 +29,13 @@ class ApplicationController < Sinatra::Base
 
   # mise à jour du Gossip dans la BDD
   post '/gossips/:gossip_id/edit' do
-    Gossip.update(params['gossip_id'], params['gossip_author'],params['gossip_content']).save
+    Gossip.update(params['gossip_id'].to_i, params['gossip_author'],params['gossip_content'])
+    redirect '/'
+  end
+
+  # supprimer un gossip : formulaire
+  get '/gossips/:gossip_id/suppr' do
+    Gossip.delete(params['gossip_id'].to_i)
     redirect '/'
   end
 end

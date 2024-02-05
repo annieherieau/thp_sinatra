@@ -19,12 +19,12 @@
     <section>
     
       <h2>Liste des Gossips</h2>
-      <% gossips.each_with_index do |gossip, id| %>
+      <% gossips.each_with_index do |gossip, gossip_id| %>
         <article>
-          <h3>Potin n°<%= id %></h3>
+          <h3>Potin n°<%= gossip_id %></h3>
           <p><%= gossip.content %></p>
           <p>Auteur : <%= gossip.author %><br>
-            <a href="/gossips/<%= id %>">Lire le potin</a> - <a href="/gossips/<%= id %>/edit">Modifier le potin</a>
+            <a href="/gossips/<%= gossip_id %>">Lire</a> - <a href="/gossips/<%= gossip_id %>/edit">Modifier</a> - <a href="/gossips/<%= gossip_id %>/suppr">Supprimer</a>
           </p>
           ---
       <% end %>
