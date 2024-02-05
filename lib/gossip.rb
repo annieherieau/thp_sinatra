@@ -42,7 +42,7 @@ class Gossip
   # mise à jour du gossip
   def self.update(id, author, content)
     # lire le csv
-    csv_array = self.all
+    csv_array = CSV.read(@@file_path)
     # update de l'Array
     csv_array.each_with_index do |gossip, index| 
       if id == index

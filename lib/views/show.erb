@@ -7,45 +7,44 @@
   <title>The Gossip Project</title>
 </head>
 <body>
-  <header>
-    <nav><ul>
-      <li><a href="/">Voir tous les gossips</a></li>
-      <li><a href="/gossips/new/">Ajouter un Gossip</a></li>
-    </ul></nav>
-    <h1>The Gossip Project</h1>
-  </header>
+<header>
+<h1 class="w3-center">The Gossip Project</h1>
+  <nav class="w3-bar w3-blue w3-card w3-center">
+    <a href="/" class="w3-bar-item w3-button">Voir tous les gossips</a>
+    <a href="/gossips/new/" class="w3-bar-item w3-button">Ajouter un Gossip</a>
+  </nav>
+  
+</header>
   <!-- MAIN -->
-  <main>
-    <hr>
+  <main class="W3-container" style="margin: 30px">
 
     <section>
-    <h2>Voici la page du potin n°<%=  gossip_id %></h2>
+    <h2>Le potin n°<%= gossip_id.to_s.rjust(2, '0')%></h2>
+    <div class="w3-panel w3-border">
     <p><strong>Son auteur :</strong> <%=  gossip.author %></strong></p>
     <p><strong>Le contenu du potin :</strong> <br>
       <%=  gossip.content %>
     </p>
-    <p><a href="/gossips/<%=  gossip_id %>/edit">Modifier</a>  - <a href="/gossips/<%= gossip_id %>/suppr">Supprimer</a>  - <a href="/">Retour</a></p>
+    </div>
+    <p class="w3-right-align"><a href="/gossips/<%=  gossip_id %>/edit">Modifier</a>  - <a href="/gossips/<%= gossip_id %>/suppr">Supprimer</a>  - <a href="/">Retour</a></p>
   </section>
-
-    <hr>
-    <section>
+  <section class='w3-light-grey' style="padding: 30px">
       <h3>Ajouter un commentaire</h3>
       <form action="/gossips/<%= gossip_id %>" method = "POST">
-          <div>
-            <label for="comment_author">*Saisis ton nom : </label> 
+
+            <label for="comment_author">*Saisis ton nom : </label> <br>
             <input required type="text" name ="comment_author" id="comment_author">
-          </div>
-          <div>
+         <br><br>
             <label for="comment_content">*Balance ton commentaire : </label><br>
             <textarea required name="comment_content" id="comment_content" cols="50" rows="2"></textarea>
-          </div>
-          <div>
-            <input type="submit">
-            <a href="/gossips/<%= gossip_id %>"><input type="button" value="Annuler"></a>
-          </div>
+            <br><br>
+            <input type="submit" class="w3-button w3-blue" value='Poster'>
+            <a href="/gossips/<%= gossip_id %>"><input type="button" value="Annuler" class="w3-button w3-dark-grey"></a>
+            <br>
           <small>* champs oblogatoires</small>
       </form>
     </section>
+    <hr>
     <section>
       <h3>Tous les commentaires</h3>
       <% comments.each do |comment| %>
@@ -56,11 +55,11 @@
       <% end %>
     </section>
 
-  <hr>
+  </main>
   <!-- fin MAIN -->
-  <footer>
-    <div><a href="https://www.linkedin.com/in/annie-herieau/" target="_blank">Annie Hérieau</a> - Powered with Sinatra - <a href="https://github.com/annieherieau/thp_sinatra_the_gossip_project" target="blank">GitHub repo</a></div>
-  </footer>
+<footer class="w3-center w3-dark-grey w3-padding-32">
+<small><a href="https://www.linkedin.com/in/annie-herieau/" target="_blank">Annie Hérieau</a> - Powered with Sinatra - <a href="https://github.com/annieherieau/thp_sinatra_the_gossip_project" target="blank">GitHub repo</a></small>
+</footer>
     
   </body>
   </html>

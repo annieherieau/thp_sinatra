@@ -26,7 +26,7 @@
           <p><%= gossip.content %></p>
           <p>Auteur : <%= gossip.author %><br>
           Nombre de commentaires : <%= Comment.find(gossip_id).length %></p>
-            <a href="/gossips/<%= gossip_id %>">Lire</a> - <a href="/gossips/<%= gossip_id %>/edit">Modifier</a> - <a href="/gossips/<%= gossip_id %>/suppr">Supprimer</a>
+            <p class="w3-center"><a href="/gossips/<%= gossip_id %>">Lire</a> - <a href="/gossips/<%= gossip_id %>/edit">Modifier</a> - <a href="/gossips/<%= gossip_id %>/suppr">Supprimer</a>
           </p>
           </div>
 

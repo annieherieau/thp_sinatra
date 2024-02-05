@@ -7,42 +7,40 @@
   <title>The Gossip Project</title>
 </head>
 <body>
-  <header>
-    <nav><ul>
-      <li><a href="/">Voir tous les gossips</a></li>
-      <li><a href="/gossips/new/">Ajouter un Gossip</a></li>
-    </ul></nav>
-    <h1>The Gossip Project</h1>
-  </header>
+<header>
+<h1 class="w3-center">The Gossip Project</h1>
+  <nav class="w3-bar w3-blue w3-card w3-center">
+    <a href="/" class="w3-bar-item w3-button">Voir tous les gossips</a>
+    <a href="/gossips/new/" class="w3-bar-item w3-button">Ajouter un Gossip</a>
+  </nav>
+  
+</header>
   <!-- MAIN -->
-  <main>
-    <hr>
+  <main class="W3-container" style="margin: 30px">
     <section>
       <h2>Creer un nouveau gossip</h2>
       <p>Tu as un nouveau potin croustillant ? Écris le vite dans le formulaire ci-dessous :</p>
-      <form action="/gossips/new" method = "POST">
-        <div>
+      <form action="/gossips/new" method = "POST" class='w3-light-grey' style="padding: 30px">
           <label for="gossip_author">*Saisis ton nom : </label> 
+          <br>
           <input required type="text" name ="gossip_author" id="gossip_author">
-        </div>
-        <div>
+          <br>
+          <br>
           <label for="gossip_content">*Balance ton potin : </label><br>
-          <textarea required name="gossip_content" id="gossip_content" cols="80" rows="10"></textarea>
-        </div>
-        <div>
-          <input type="submit">
-          <a href="/"><input type="button" value="Annuler"></a>
-        </div>
+          <textarea required name="gossip_content" id="gossip_content" cols="60" rows="10"></textarea>
+          <br><br>
+          <input type="submit" class="w3-button w3-blue" value="Enregister">
+          <a href="/"><input type="button" value="Annuler" class="w3-button w3-dark-grey"></a>
+          <br>
         <small>* champs oblogatoires</small>
       </form>
     
     </section>
-    <hr>
   </main>
   <!-- fin MAIN -->
-<footer>
-<div><a href="https://www.linkedin.com/in/annie-herieau/" target="_blank">Annie Hérieau</a> - Powered with Sinatra - <a href="https://github.com/annieherieau/thp_sinatra_the_gossip_project" target="blank">GitHub repo</a></div>
-</footer>
+  <footer class="w3-center w3-dark-grey w3-padding-32">
+  <small><a href="https://www.linkedin.com/in/annie-herieau/" target="_blank">Annie Hérieau</a> - Powered with Sinatra - <a href="https://github.com/annieherieau/thp_sinatra_the_gossip_project" target="blank">GitHub repo</a></small>
+  </footer>
 
 </body>
 </html>
