@@ -32,22 +32,18 @@ class Gossip
     return self.all[id]
   end
 
-  # def find_index
-    
-  #   self.all.index{|g| g == self}
-  # end
-
-  # def self.delete(id)
-  #   File.open(@file_path+'_temp', 'w') do |out_file|
-  #     File.foreach(@file_path).with_index do |line, line_index|
-  #       out_file.puts line unles line_index == id
-  #     end
-  #   end
-  #   File.delete(@file_path)
-  #   File.rename(@file_path+'_temp', @file_path)
-  # end
+  # mise à jour du gossip
+  def self.update(id, author, content)
+    i = 0
+    CSV.open(@@file_path, 'wb') do |csv|
+      csv.replace([ author , content ]) if i == id
+      i +=1
+    end
+    binding.pry
+  end
 end
 
 # _____ TESTS
-# gossip = Gossip.new("Annie","Mon potin,'lol'")
+# gossip = Gossip.new("Annie","Mon potin,'lol' test update")
 # gossip = Gossip.find(0)
+Gossip.update(9, "Anniex","Mon potin,'lol' test update : ok")

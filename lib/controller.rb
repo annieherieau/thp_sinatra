@@ -19,12 +19,17 @@ class ApplicationController < Sinatra::Base
 
   # afficher un gossip par son index
   get '/gossips/:gossip_id' do
-    erb :show, locals: {gossip: Gossip.find(params['gossip_id'].to_i), gossip_id: params['gossip_id'].to_i}
+    erb :show, locals: {gossip_id: params['gossip_id'].to_i, gossip: Gossip.find(params['gossip_id'].to_i)}
   end
 
   # page éditer un gossip : formulaire
   get '/gossips/:gossip_id/edit' do
-    erb :edit, locals: {gossip: Gossip.find(params['gossip_id'].to_i), gossip_id: params['gossip_id'].to_i}
+    erb :edit, locals: {gossip_id: params['gossip_id'].to_i, gossip: Gossip.find(params['gossip_id'].to_i)}
   end
+
+  # mise à jour du Gossip dans la BDD
+  post '/gossips/:gossip_id/edit' do
+    Gossip.update(params['gossip_id'], params['gossip_author'],params['gossip_content']).save
+    redirect '/'
   end
 end

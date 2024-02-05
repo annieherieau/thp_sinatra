@@ -17,16 +17,16 @@
   <main>
     <hr>
     <section>
-      <h2>Modifer le potin n° xx</h2>
+      <h2>Modifer le potin n° <%=  gossip_id %></h2>
       <p>Ce potin est dépassé, erroné ou incomplet ? Modifie-le dans le formulaire ci-dessous :</p>
-      <form action="/gossips/update" method = "POST">
+      <form action="/gossips/<%=  gossip_id %>/edit" method = "POST">
         <div>
           <label for="gossip_author">Nom de l''auteur : </label> 
-          <input type="text" name ="gossip_author" id="gossip_author">
+          <input type="text" name ="gossip_author" id="gossip_author" value="<%=  gossip.author %>">
         </div>
         <div>
           <label for="gossip_content">Le potin : </label><br>
-          <textarea name="gossip_content" id="gossip_content" cols="150" rows="10"></textarea>
+          <textarea name="gossip_content" id="gossip_content" cols="80" rows="10" ><%=  gossip.content %></textarea>
         </div>
         <div>
           <input type="submit">
