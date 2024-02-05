@@ -55,7 +55,7 @@ class Gossip
   end
 
   def self.delete(id)
-    csv_array = self.all
+    csv_array = CSV.read(@@file_path)
     # suppression du gossip
     updated_array = csv_array.filter.with_index do |gossip, index|
       index != id
