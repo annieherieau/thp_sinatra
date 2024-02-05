@@ -8,16 +8,16 @@ The Hacking Project est une superbe formation, avec une communauté soudée. Qui
 
 ## Fonctionnalités principales
 
-- Page d'accueil affichant tous les potins
-- Ajouter un potin via formulaire
-- Pages pour chaque potin
-- Éditer un potin
+- Page d'accueil : tous les potins (auteurs, contenus, nombre de commentaires)
+- Page Ajouter un nouveau potin (formulaire)
+- Page Lire un potin (auteur, contenu, liste des commentaires)
+- Page Modifier un potin
 - Supprimer un potin
-- poster un commentaire sur un potin
+- Ajouter un commentaire
 
 ## Objectifs
 
-- Utiliser un serveur ;
+- Utiliser un serveur
 - Lancer une application en Sinatra, et bien ranger le code en MVC ;
 - Définir des routes et endpoints dans ton application ;
 - Utiliser les views pour gérer plus facilement le HTML / CSS ;
@@ -42,4 +42,5 @@ run the App
 ```bash
   rackup -p 4567
 ```
+go on browser : http://localhost:4567/
 
