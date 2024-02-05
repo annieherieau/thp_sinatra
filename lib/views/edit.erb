@@ -22,15 +22,17 @@
       <form action="/gossips/<%=  gossip_id %>/edit" method = "POST">
         <div>
           <label for="gossip_author">Nom de l''auteur : </label> 
-          <input type="text" name ="gossip_author" id="gossip_author" value="<%=  gossip.author %>">
+          <input required type="text" name ="gossip_author" id="gossip_author" value="<%=  gossip.author %>">
         </div>
         <div>
           <label for="gossip_content">Le potin : </label><br>
-          <textarea name="gossip_content" id="gossip_content" cols="80" rows="10" ><%=  gossip.content %></textarea>
+          <textarea required name="gossip_content" id="gossip_content" cols="80" rows="10" ><%=  gossip.content %></textarea>
         </div>
         <div>
           <input type="submit">
+          <a href="/"><input type="button" value="Annuler"></a>
         </div>
+        <small>* champs oblogatoires</small>
       </form>
     
     </section>

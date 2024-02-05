@@ -21,16 +21,18 @@
       <p>Tu as un nouveau potin croustillant ? Écris le vite dans le formulaire ci-dessous :</p>
       <form action="/gossips/new" method = "POST">
         <div>
-          <label for="gossip_author">Saisi ton nom : </label> 
-          <input type="text" name ="gossip_author" id="gossip_author">
+          <label for="gossip_author">*Saisi ton nom : </label> 
+          <input required type="text" name ="gossip_author" id="gossip_author">
         </div>
         <div>
-          <label for="gossip_content">Balance ton potin : </label><br>
-          <textarea name="gossip_content" id="gossip_content" cols="80" rows="10"></textarea>
+          <label for="gossip_content">*Balance ton potin : </label><br>
+          <textarea required name="gossip_content" id="gossip_content" cols="80" rows="10"></textarea>
         </div>
         <div>
           <input type="submit">
+          <a href="/"><input type="button" value="Annuler"></a>
         </div>
+        <small>* champs oblogatoires</small>
       </form>
     
     </section>
