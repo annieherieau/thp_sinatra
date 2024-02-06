@@ -54,17 +54,16 @@ class Gossip
     self.update_csv(csv_array)
   end
 
-  def self.delete(id)
-    csv_array = CSV.read(@@file_path)
-    # suppression du gossip
-    updated_array = csv_array.filter.with_index do |gossip, index|
-      index != id
-    end
-     # mise à jour du fichier
-     self.update_csv(updated_array)
-
-     # TODO: delete les commentaires associés
-  end
+  # TODO: delete les commentaires associés
+  # mise à jour du fichier : attention il faut mettre à jour les gossip id des commentaires, sinon décallage
+  # def self.delete(id)
+  #   csv_array = CSV.read(@@file_path)
+  #   # suppression du gossip
+  #   updated_array = csv_array.filter.with_index do |gossip, index|
+  #     index != id
+  #   end
+  #   #  self.update_csv(updated_array)
+  # end
 end
 
 
