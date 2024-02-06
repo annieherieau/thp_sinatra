@@ -24,9 +24,6 @@ The Hacking Project est une superbe formation, avec une communauté soudée. Qui
 - Créer et avoir une base de données ;
 - Récupérer de l'information à partir de formulaires et la stocker en base de données.
 
-
-
-
 ## Run via GitHub Codespace
 Click on the green button 'Code' and select 'Ceate cospace on main'.
 NB: On free plan, you can run 2 codespaces simultaneously. You can manage them at ["https://github.com/codespace"]
@@ -43,4 +40,7 @@ run the App
   rackup -p 4567
 ```
 go on browser : http://localhost:4567/
+
+## Todo list
+- Supprimer un potin
 
