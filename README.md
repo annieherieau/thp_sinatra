@@ -19,9 +19,9 @@ The Hacking Project est une superbe formation, avec une communauté soudée. Qui
 
 - Utiliser un serveur
 - Lancer une application en Sinatra, et bien ranger le code en MVC ;
-- Définir des routes et endpoints dans ton application ;
+- Définir des routes et endpoints dans l'application ;
 - Utiliser les views pour gérer plus facilement le HTML / CSS ;
-- Créer et avoir une base de données ;
+- Créer et gérer une base de données csv ;
 - Récupérer de l'information à partir de formulaires et la stocker en base de données.
 
 ## Run via GitHub Codespace
@@ -42,5 +42,5 @@ run the App
 go on browser : http://localhost:4567/
 
 ## Todo list
-- Supprimer un potin
+- Supprimer un potin et ses commentaires
 
